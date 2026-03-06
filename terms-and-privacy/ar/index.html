@@ -1,568 +1,1033 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>فيتروم — إرشادات التعامل</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الشروط والخصوصية — VetroM</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="إرشادات التعامل مع عملاء VetroM — الشروط والأحكام وسياسة الخصوصية بقلم مهدي ياسر.">
+    <meta name="robots" content="index, follow">
 
-<style>
-/* Reset & base */
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: 'Poppins', 'Segoe UI', Tahoma, Verdana, sans-serif; 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+
+    <style>
+/* ─── Google Fonts ──────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* ─── Variables ─────────────────────────────────────────────── */
+:root {
+    --bg:           #f4f4f6;
+    --bg-card:      #ffffff;
+    --bg-card2:     #f0f0f3;
+    --border:       #e2e2e8;
+    --text:         #111118;
+    --text-muted:   #6b6b80;
+    --accent:       #4f6ef7;
+    --accent-hover: #3a56e0;
+    --accent-green: #22c55e;
+    --header-bg:    rgba(244,244,246,0.85);
+    --shadow:       0 4px 24px rgba(0,0,0,0.08);
+    --shadow-hover: 0 12px 40px rgba(0,0,0,0.14);
+    --radius:       16px;
+    --radius-sm:    10px;
+    --transition:   0.25s ease;
 }
 
-body { 
-    background: #f0f2f5; 
-    color: #333; 
-    line-height: 1.7; 
-    padding: 20px; 
-    scroll-behavior: smooth; 
-    font-size: 16px; 
-    transition: font-size 0.2s ease; 
-    /* Padding bottom to ensure content isn't hidden behind the floating navigator */
-    padding-bottom: 80px; 
+[data-theme="dark"] {
+    --bg:           #0d0d12;
+    --bg-card:      #16161e;
+    --bg-card2:     #1c1c26;
+    --border:       #2a2a38;
+    --text:         #e8e8f0;
+    --text-muted:   #7a7a96;
+    --accent:       #4f6ef7;
+    --accent-hover: #6b85ff;
+    --accent-green: #22c55e;
+    --header-bg:    rgba(13,13,18,0.88);
+    --shadow:       0 4px 24px rgba(0,0,0,0.4);
+    --shadow-hover: 0 12px 40px rgba(0,0,0,0.6);
 }
 
-header { 
-    text-align: center; 
-    padding: 40px 20px; 
-    background: linear-gradient(135deg, #667eea, #764ba2); 
-    color: #fff; 
-    border-radius: 15px; 
-    margin-bottom: 30px; 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1); 
+/* ─── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+::-webkit-scrollbar { display: none; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-header h1 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 1px; }
-header p { font-size: 1.1rem; color: #e0e0e0; }
-
-/* Navigation */
-.toc { 
-    display: flex; 
-    flex-wrap: wrap; 
-    gap: 12px; 
-    justify-content: center; 
-    margin-bottom: 20px; 
-    background: #f0f2f5; 
-    padding: 10px 0; 
+/* ─── Header ────────────────────────────────────────────────── */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--header-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    transition: box-shadow var(--transition);
 }
 
-.toc button { 
-    background: #667eea; 
-    color: #fff; 
-    border: none; 
-    padding: 10px 18px; 
-    border-radius: 8px; 
-    cursor: pointer; 
-    font-weight: 500; 
-    transition: 0.3s; 
-    box-shadow: 0 3px 8px rgba(0,0,0,0.1); 
-}
-
-.toc button:hover { 
-    background: #764ba2; 
-    transform: translateY(-2px); 
-}
-
-/* Unified Search & Font Controls Container */
-.search-container {
+header .container {
     display: flex;
-    gap: 15px;
-    max-width: 1100px;
-    margin: 0 auto 30px auto;
-    align-items: flex-end; 
-}
-
-.search-box, .teleport-box {
-    flex: 2;
-}
-
-.font-controls-wrapper {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    min-width: fit-content;
-}
-
-.control-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-left: 2px;
-}
-
-.button-group {
-    display: flex;
-    gap: 5px;
-}
-
-#search, #line-teleport { 
-    width: 100%; 
-    height: 44px; 
-    padding: 12px 15px; 
-    border-radius: 12px; 
-    border: 1px solid #ccc; 
-    font-size: 1rem; 
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #fff;
-}
-
-#search:focus, #line-teleport:focus { 
-    outline: none; 
-    border-color: #667eea; 
-    box-shadow: 0 0 0 3px rgba(102,126,234,0.2); 
-}
-
-.button-group button { 
-    flex: 1;
-    height: 44px;
-    padding: 0 15px;
-    border-radius: 10px; 
-    border: none; 
-    background: #667eea; 
-    color: white; 
-    cursor: pointer; 
-    font-weight: 600; 
-    transition: 0.3s; 
-}
-
-.button-group button:hover { 
-    background: #764ba2; 
-    transform: translateY(-1px); 
-}
-
-/* Content Sections */
-section { 
-    background: #fff; 
-    border-radius: 15px; 
-    padding: 30px 25px; 
-    margin-bottom: 30px; 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
-    transition: transform 0.3s, box-shadow 0.3s; 
-}
-
-section:hover { 
-    transform: translateY(-3px); 
-    box-shadow: 0 15px 30px rgba(0,0,0,0.08); 
-}
-
-section h2 { 
-    margin-bottom: 15px; 
-    color: #333; 
-    font-size: 1.6rem; 
-    position: relative; 
-    display: inline-block; 
-}
-
-section h2::after { 
-    content: ''; 
-    display: block; 
-    width: 50px; 
-    height: 3px; 
-    background: #667eea; 
-    border-radius: 2px; 
-    margin-top: 6px; 
-}
-
-section h3 { margin-top: 15px; margin-bottom: 8px; color: #555; font-size: 1.2rem; }
-section p, section li { margin-bottom: 12px; line-height: 1.6; color: #555; position: relative; }
-section ul, section ol { margin-bottom: 12px; padding-left: 25px; }
-
-blockquote { 
-    border-left: 4px solid #667eea; 
-    padding-left: 12px; 
-    color: #555; 
-    margin-bottom: 12px; 
-    background: #f7f8fc; 
-    border-radius: 6px; 
-}
-
-a { color: #667eea; text-decoration: none; font-weight: 500; }
-mark { background-color: #fffa9c; padding: 0 3px; border-radius: 3px; color: #000; }
-/* Current match highlighting */
-mark.current-match { background-color: #ff9f43; color: white; outline: 2px solid #333; }
-
-/* Responsive Design */
-@media(max-width:768px){
-    body { padding: 15px; padding-bottom: 80px; }
-    header h1 { font-size: 1.8rem; }
-    
-    .search-container { 
-        flex-direction: column; 
-        gap: 15px; 
-        align-items: stretch;
-    }
-    
-    .font-controls-wrapper {
-        align-items: center;
-    }
-
-    .button-group {
-        width: 100%;
-    }
-
-    .toc { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-    .toc button { padding: 8px 4px; font-size: 0.8rem; }
-    section { padding: 20px; }
-}
-
-@media(max-width:480px){
-    .toc { grid-template-columns: repeat(2, 1fr); }
-    header { padding: 25px 15px; }
-}
-
-/* --- Floating Search Navigator --- */
-#search-navigator {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #333;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 30px;
-    display: none; 
     align-items: center;
-    gap: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    z-index: 1000;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0 2rem;
+    height: 64px;
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+}
+
+.logo span { color: var(--accent); }
+
+nav#main-nav ul { display: flex; gap: 0.25rem; list-style: none; }
+
+nav#main-nav a {
+    display: block;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-muted);
+    text-decoration: none;
     font-size: 0.9rem;
-    white-space: nowrap;
+    font-weight: 500;
+    transition: color var(--transition), background var(--transition);
 }
 
-#search-navigator.visible {
-    display: flex;
-    animation: slideUp 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-}
+nav#main-nav a:hover { color: var(--text); background: var(--bg-card2); }
+nav#main-nav a.active { color: var(--accent); background: rgba(79,110,247,0.1); }
 
-#search-navigator span {
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
-    min-width: 50px;
-    text-align: center;
-}
+.header-actions { display: flex; align-items: center; gap: 0.5rem; }
 
-.nav-btn {
-    background: #667eea;
-    border: none;
-    color: white;
-    width: 32px;
-    height: 32px;
+#theme-toggle {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s;
+    font-size: 0.85rem;
+    transition: all var(--transition);
 }
 
-.nav-btn:hover { background: #764ba2; }
-.nav-btn:active { transform: scale(0.95); }
+#theme-toggle:hover { color: var(--text); border-color: var(--accent); }
 
-@keyframes slideUp {
-    from { transform: translate(-50%, 20px); opacity: 0; }
-    to { transform: translate(-50%, 0); opacity: 1; }
-}
-
-/* Language Switcher in Header */
-.lang-switch-header {
-    position: absolute;
-    top: 30px;
-    left: 30px;
-    background: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    text-decoration: none;
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
+.lang-toggle {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 0.3rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
     font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    transition: all 0.3s ease;
-    backdrop-filter: blur(5px); /* Modern frosted glass effect */
+    text-decoration: none;
+    cursor: pointer;
+    transition: all var(--transition);
 }
 
-.lang-switch-header:hover {
-    background: #fff;
-    color: #764ba2;
+.lang-toggle:hover { color: var(--text); border-color: var(--accent); }
+
+.mobile-menu-toggle {
+    display: none;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: all var(--transition);
+}
+
+/* ─── Container ─────────────────────────────────────────────── */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* ─── Reveal ────────────────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── Shared Labels ─────────────────────────────────────────── */
+.section-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(79,110,247,0.1);
+    border: 1px solid rgba(79,110,247,0.25);
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    margin-bottom: 0.85rem;
+}
+
+.section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+}
+
+.section-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 540px;
+    margin-top: 0.4rem;
+}
+
+.section-header { margin-bottom: 3rem; }
+
+/* ─── Buttons ───────────────────────────────────────────────── */
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.65rem 1.4rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all var(--transition);
+    white-space: nowrap;
+}
+
+.button.primary { background: var(--accent); color: #fff; }
+.button.primary:hover {
+    background: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 6px 20px rgba(79,110,247,0.35);
 }
 
-/* Width and Track */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+.button.secondary {
+    background: var(--bg-card2);
+    color: var(--text);
+    border: 1px solid var(--border);
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 10px;
+.button.secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
+.button.ghost {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
 }
 
-/* Mobile Adjustments */
-@media(max-width:768px){
-    .lang-switch-header {
-        top: 30px;
-        left: 30px;
-        font-size: 0.8rem;
-        padding: 4px 12px;
+.button.ghost:hover { color: var(--text); border-color: var(--text-muted); }
+
+/* ─── Page Header ───────────────────────────────────────────── */
+.page-header {
+    padding: 5rem 0 3.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 4rem;
+}
+
+.page-header-inner { max-width: 640px; }
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb a { color: var(--text-muted); text-decoration: none; transition: color var(--transition); }
+.breadcrumb a:hover { color: var(--accent); }
+.breadcrumb i { font-size: 0.6rem; opacity: 0.5; }
+
+/* ─── Footer ────────────────────────────────────────────────── */
+footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-copy { font-size: 0.85rem; color: var(--text-muted); }
+
+.footer-links { display: flex; gap: 1.25rem; }
+
+.footer-links a {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+
+.footer-links a:hover { color: var(--accent); }
+
+/* ─── Mobile ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    header .container { padding: 0 1rem; }
+
+    nav#main-nav {
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        right: 0;
+        background: var(--bg-card);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem;
+        box-shadow: var(--shadow);
+        z-index: 99;
     }
-    
-    header {
-        padding-top: 50px; /* Adds space so the title doesn't hit the button */
-    }
+
+    nav#main-nav.mobile-open { display: block; }
+    nav#main-nav ul { flex-direction: column; gap: 0.25rem; }
+    nav#main-nav a { padding: 0.6rem 1rem; font-size: 1rem; }
+
+    .mobile-menu-toggle { display: flex; }
+
+    .container { padding: 0 1rem; }
+
+    .page-header { padding: 3rem 0 2.5rem; margin-bottom: 3rem; }
+
+    footer .container { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
 }
-</style>
+        /* ─── Terms-specific styles ──────────────────────────────── */
+
+        .terms-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 2rem;
+            align-items: start;
+            padding-bottom: 6rem;
+        }
+
+        /* Sidebar TOC */
+        .terms-sidebar {
+            position: sticky;
+            top: 80px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar-label {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .toc-list button {
+            width: 100%;
+            text-align: right;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 500;
+            padding: 0.45rem 0.65rem;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition);
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .toc-list button:hover {
+            background: var(--bg-card2);
+            color: var(--text);
+        }
+
+        .toc-list button.active {
+            background: rgba(79,110,247,0.1);
+            color: var(--accent);
+        }
+
+        /* Controls bar */
+        .terms-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .search-wrap {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .search-wrap i {
+            position: absolute;
+            right: 0.9rem; left: unset;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            pointer-events: none;
+        }
+
+        #search-input {
+            width: 100%;
+            height: 38px;
+            padding: 0 2.4rem 0 0.9rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text);
+            font-size: 0.875rem;
+            font-family: 'Cairo', sans-serif;
+            transition: all var(--transition);
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(79,110,247,0.15);
+        }
+
+        #search-input::placeholder { color: var(--text-muted); }
+
+        .teleport-wrap {
+            position: relative;
+        }
+
+        .teleport-wrap i {
+            position: absolute;
+            right: 0.9rem; left: unset;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            pointer-events: none;
+        }
+
+        #line-input {
+            width: 140px;
+            height: 38px;
+            padding: 0 2.4rem 0 0.9rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text);
+            font-size: 0.875rem;
+            font-family: 'Cairo', sans-serif;
+            transition: all var(--transition);
+        }
+
+        #line-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(79,110,247,0.15);
+        }
+
+        #line-input::placeholder { color: var(--text-muted); }
+
+        .font-btns {
+            display: flex;
+            gap: 4px;
+        }
+
+        .font-btns button {
+            height: 38px;
+            padding: 0 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            transition: all var(--transition);
+        }
+
+        .font-btns button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Terms sections */
+        .terms-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.25rem 2.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: var(--shadow);
+            scroll-margin-top: 90px;
+            transition: border-color var(--transition);
+        }
+
+        .terms-section:hover { border-color: rgba(79,110,247,0.25); }
+
+        .terms-section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.85rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+        }
+
+        .terms-section h2 .section-num {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            background: rgba(79,110,247,0.1);
+            border: 1px solid rgba(79,110,247,0.2);
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+        }
+
+        .terms-section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 1.5rem 0 0.6rem;
+        }
+
+        .terms-section p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 0.75rem;
+        }
+
+        .terms-section ul,
+        .terms-section ol {
+            padding-left: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .terms-section li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+            margin-bottom: 0.4rem;
+        }
+
+        .terms-section strong { color: var(--text); font-weight: 600; }
+
+        .terms-section a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity var(--transition);
+        }
+
+        .terms-section a:hover { opacity: 0.75; }
+
+        .terms-section blockquote {
+            border-right: 3px solid var(--accent); border-left: none;
+            padding: 0.85rem 1.1rem;
+            background: rgba(79,110,247,0.06);
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+            margin: 1rem 0;
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
+        /* Search highlight */
+        mark {
+            background: rgba(255,220,0,0.45);
+            color: var(--text);
+            padding: 0 2px;
+            border-radius: 3px;
+        }
+
+        mark.current-match {
+            background: var(--accent);
+            color: #fff;
+            outline: 2px solid rgba(79,110,247,0.5);
+        }
+
+        /* Floating search navigator */
+        #search-navigator {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.6rem 1rem;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+            z-index: 200;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s ease;
+        }
+
+        #search-navigator.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        #search-counter { color: var(--text-muted); min-width: 48px; text-align: center; }
+
+        .nav-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--bg-card2);
+            border: 1px solid var(--border);
+            color: var(--text);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            transition: all var(--transition);
+        }
+
+        .nav-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+        .nav-close {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            transition: color var(--transition);
+        }
+
+        .nav-close:hover { color: var(--text); }
+
+        /* Mobile */
+        @media (max-width: 900px) {
+            .terms-layout { grid-template-columns: 1fr; }
+            .terms-sidebar { position: static; }
+            .toc-list { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+            .toc-list button { width: auto; }
+        }
+
+        @media (max-width: 600px) {
+            .terms-section { padding: 1.5rem; }
+            .terms-controls { gap: 0.5rem; }
+            #line-input { width: 110px; }
+        }
+
+    </style>
 </head>
-<body>
+<body data-theme="dark">
 
-<header>
-  <a href="../" class="lang-switch-header">Switch To English</a>
-  <h1>فيتروم — إرشادات التعامل</h1>
-  <p>ساري من: النسخة المتفق عليها عند بداية المشروع.</p>
-</header>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">Vetro<span>M</span></a>
 
-<div class="toc">
-  <button onclick="scrollToSection('intro')">المقدمة</button>
-  <button onclick="scrollToSection('ownership')">حقوق الملكية</button>
-  <button onclick="scrollToSection('backend')">السيستم والبرمجة</button>
-  <button onclick="scrollToSection('design')">التصميم</button>
-  <button onclick="scrollToSection('support')">الدعم الفني</button>
-  <button onclick="scrollToSection('payment')">الدفع والتسعير</button>
-  <button onclick="scrollToSection('revisions')">التعديلات</button>
-  <button onclick="scrollToSection('responsibilities')">دور العميل</button>
-  <button onclick="scrollToSection('prohibited')">المحظورات</button>
-  <button onclick="scrollToSection('liability')">المسؤولية</button>
-  <button onclick="scrollToSection('termination')">إلغاء المشروع</button>
-  <button onclick="scrollToSection('portfolio')">خصوصية المشروع</button>
-  <button onclick="scrollToSection('privacy')">الخصوصية</button>
-  <button onclick="scrollToSection('contact')">التواصل</button>
-</div>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="/">الرئيسية</a></li>
+                    <li><a href="/software">البرمجيات</a></li>
+                    <li><a href="/services">الخدمات</a></li>
+                    <li><a href="/#about">عنّي</a></li>
+                    <li><a href="/#contact">تواصل</a></li>
+                </ul>
+            </nav>
 
-<div class="search-container">
-  <div class="search-box">
-    <form onsubmit="event.preventDefault(); document.getElementById('search').blur();" style="width: 100%;">
-      <input type="text" id="search" placeholder="ابحث عن كلمات..." enterkeyhint="search">
-    </form>
-  </div>
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="تغيير المظهر"><i class="fa-solid fa-moon"></i></button>
+                <a href="../" class="lang-toggle" aria-label="English version">English</a>
+                <button class="mobile-menu-toggle" aria-label="فتح القائمة">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
 
-  <div class="teleport-box">
-    <form onsubmit="event.preventDefault(); performTeleport();" style="width: 100%;">
-      <input type="number" id="line-teleport" placeholder="اذهب الي السطر #" enterkeyhint="go">
-    </form>
-  </div>
-
-  <div class="font-controls-wrapper">
-    <span class="control-label">حجم الخط</span>
-    <div class="button-group">
-      <button onclick="changeFontSize(1)" title="Increase Font">+ أ</button>
-      <button onclick="changeFontSize(-1)" title="Decrease Font">- أ</button>
-    </div>
-  </div>
-</div>
-
-<div id="search-navigator">
-    <button class="nav-btn" onclick="navigateSearch(-1)">‹</button>
-    <span id="search-counter">0 / 0</span>
-    <button class="nav-btn" onclick="navigateSearch(1)">›</button>
-</div>
-
-<script>
-// --- Global Variables ---
-let currentMatches = [];
-let currentMatchIndex = -1;
-let searchTimeout = null;
-const searchInput = document.getElementById('search');
-const navigatorEl = document.getElementById('search-navigator');
-const counterEl = document.getElementById('search-counter');
-const lineInput = document.getElementById('line-teleport');
-
-// --- 1. Load Data & Initialize ---
-async function init() {
-    try {
-        const response = await fetch('data.json');
-        const data = await response.json();
-        renderSections(data.sections);
-        setupLineNumbers();
-    } catch (error) {
-        console.error("Error loading guidelines:", error);
-    }
-}
-
-function renderSections(sections) {
-    const container = document.querySelector('.search-container');
-    const sectionsHTML = sections.map(sec => `
-        <section id="${sec.id}">
-            <h2>${sec.title}</h2>
-            ${sec.content}
+    <main>
+        <section class="page-header">
+            <div class="container page-header-inner reveal">
+                <div class="breadcrumb">
+                    <a href="/">VetroM</a>
+                    <i class="fa-solid fa-chevron-right"></i>
+                    <span>الشروط والخصوصية</span>
+                </div>
+                <div class="section-tag">إرشادات التعامل</div>
+                <h1 class="section-title">الشروط والخصوصية</h1>
+                <p class="section-desc">كيف أعمل، ماذا تتوقع، وكيف يتم التعامل مع بياناتك. للاطلاع فقط — ليس عقدًا قانونيًا.</p>
+            </div>
         </section>
-    `).join('');
-    
-    // Insert sections before the closing of the body/scripts
-    container.insertAdjacentHTML('afterend', sectionsHTML);
-}
 
-function setupLineNumbers() {
-    let globalLineCount = 1;
-    document.querySelectorAll('section p, section h3, section li, section blockquote').forEach(el => {
-        el.setAttribute('data-line', globalLineCount);
-        globalLineCount++;
+        <div class="container">
+            <div class="terms-layout">
+
+                <!-- Sidebar TOC -->
+                <aside class="terms-sidebar reveal">
+                    <div class="sidebar-label">المحتويات</div>
+                    <ul class="toc-list" id="toc-list">
+                        <!-- populated by JS -->
+                    </ul>
+                </aside>
+
+                <!-- Main content -->
+                <div class="terms-main">
+
+                    <!-- Controls -->
+                    <div class="terms-controls reveal">
+                        <div class="search-wrap">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" id="search-input" placeholder="ابحث في الوثيقة…" autocomplete="off">
+                        </div>
+                        <div class="teleport-wrap">
+                            <i class="fa-solid fa-location-crosshairs"></i>
+                            <input type="number" id="line-input" placeholder="اذهب للسطر…" min="1">
+                        </div>
+                        <div class="font-btns">
+                            <button onclick="changeFontSize(1)" title="تكبير الخط">أ+</button>
+                            <button onclick="changeFontSize(-1)" title="تصغير الخط">أ−</button>
+                        </div>
+                    </div>
+
+                    <!-- Sections injected here -->
+                    <div id="sections-container">
+                        <div style="display:flex;align-items:center;gap:0.75rem;padding:3rem 0;color:var(--text-muted);font-size:0.9rem;">
+                            <i class="fa-solid fa-circle-notch fa-spin"></i> جاري التحميل…
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-copy">&copy; 2026 VetroM &mdash; من تطوير مهدي ياسر</p>
+            <div class="footer-links">
+                <a href="/terms-and-privacy">الشروط والخصوصية</a>
+                <a href="/software">البرمجيات</a>
+                <a href="/services">الخدمات</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating search navigator -->
+    <div id="search-navigator">
+        <button class="nav-btn" onclick="navigateSearch(-1)" title="السابق"><i class="fa-solid fa-chevron-up"></i></button>
+        <span id="search-counter">0 / 0</span>
+        <button class="nav-btn" onclick="navigateSearch(1)" title="التالي"><i class="fa-solid fa-chevron-down"></i></button>
+        <button class="nav-close" onclick="clearSearch()" title="مسح البحث"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- Brand JS (inline, no external dep) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const body         = document.body;
+        const themeToggle  = document.getElementById('theme-toggle');
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const mainNav      = document.getElementById('main-nav');
+        const header       = document.querySelector('header');
+
+        // ── Theme ──────────────────────────────────────────
+        function applyTheme(t) {
+            body.setAttribute('data-theme', t);
+            const icon = themeToggle.querySelector('i');
+            if (icon) icon.className = t === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            localStorage.setItem('vetrom-theme', t);
+        }
+        applyTheme(localStorage.getItem('vetrom-theme') || 'dark');
+        themeToggle.addEventListener('click', () =>
+            applyTheme(body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'));
+
+        // ── Mobile menu ────────────────────────────────────
+        if (mobileToggle && mainNav) {
+            mobileToggle.addEventListener('click', () => {
+                const open = mainNav.classList.toggle('mobile-open');
+                mobileToggle.querySelector('i').className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            });
+            mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+                mainNav.classList.remove('mobile-open');
+                mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
+            }));
+        }
+
+        // ── Header shadow ──────────────────────────────────
+        window.addEventListener('scroll', () => {
+            header.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.3)' : 'none';
+        }, { passive: true });
+
+        // ── Reveal ─────────────────────────────────────────
+        function reveal() {
+            document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 40)
+                    el.classList.add('visible');
+            });
+        }
+        window.addEventListener('scroll', reveal, { passive: true });
+        requestAnimationFrame(() => requestAnimationFrame(reveal));
+
+        // ── Load & render data ─────────────────────────────
+        init();
     });
-}
 
-// --- 2. Teleport Logic ---
-function performTeleport() {
-    const lineNumber = lineInput.value;
-    if (!lineNumber) return;
+    // ── Search state ──────────────────────────────────────
+    let matches = [], matchIndex = -1, searchTimer = null;
+    const searchInput  = document.getElementById('search-input');
+    const lineInput    = document.getElementById('line-input');
+    const navigator_el = document.getElementById('search-navigator');
+    const counterEl    = document.getElementById('search-counter');
 
-    lineInput.blur(); 
-
-    setTimeout(() => {
-        const targetEl = document.querySelector(`[data-line="${lineNumber}"]`);
-        if (targetEl) {
-            targetEl.closest('section').style.display = 'block';
-            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            targetEl.style.backgroundColor = '#fffa9c';
-            setTimeout(() => targetEl.style.backgroundColor = 'transparent', 3000);
-        } else {
-            alert('Line ' + lineNumber + ' not found!');
+    // ── Data & render ──────────────────────────────────────
+    async function init() {
+        try {
+            const res  = await fetch('data.json');
+            const data = await res.json();
+            renderSections(data.sections);
+            buildTOC(data.sections);
+            setupLineNumbers();
+            setupIntersectionObserver();
+        } catch(e) {
+            document.getElementById('sections-container').innerHTML =
+                `<div style="color:var(--text-muted);padding:2rem 0;font-size:0.9rem;"><i class="fa-solid fa-triangle-exclamation"></i> تعذّر تحميل الوثيقة.</div>`;
         }
-    }, 350); 
-}
+    }
 
-// --- 3. Search Logic ---
-searchInput.addEventListener('input', function() {
-    const query = this.value.toLowerCase().trim();
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(() => {
-        performSearch(query);
-    }, 300);
-});
+    function sectionNumber(title) {
+        const m = title.match(/^(\d+)\./);
+        return m ? `<span class="section-num">${m[1]}</span>` : '';
+    }
 
-function performSearch(query) {
-    currentMatches = [];
-    currentMatchIndex = -1;
-    
-    document.querySelectorAll('section').forEach(section => {
-        const originalText = section.getAttribute('data-original') || section.innerHTML;
-        if (!section.getAttribute('data-original')) section.setAttribute('data-original', originalText);
-        
-        section.innerHTML = originalText;
-        
-        if (query === '') {
-            section.style.display = 'block';
-            return; 
+    function renderSections(sections) {
+        const container = document.getElementById('sections-container');
+        container.innerHTML = sections.map(sec => `
+            <div class="terms-section reveal" id="${sec.id}">
+                <h2>${sectionNumber(sec.title)}${sec.title.replace(/^\d+\.\s*/, '')}</h2>
+                <div class="section-body">${sec.content}</div>
+            </div>
+        `).join('');
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+            document.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 40)
+                    el.classList.add('visible');
+            });
+        }));
+    }
+
+    function buildTOC(sections) {
+        const ul = document.getElementById('toc-list');
+        ul.innerHTML = sections.map(sec => `
+            <li>
+                <button onclick="scrollToSection('${sec.id}')" data-toc="${sec.id}">
+                    ${sec.title.replace(/^\d+\.\s*/, '')}
+                </button>
+            </li>
+        `).join('');
+    }
+
+    function setupLineNumbers() {
+        let n = 1;
+        document.querySelectorAll('.terms-section p, .terms-section h3, .terms-section li, .terms-section blockquote')
+            .forEach(el => el.setAttribute('data-line', n++));
+    }
+
+    function setupIntersectionObserver() {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.id;
+                    document.querySelectorAll('.toc-list button').forEach(b => {
+                        b.classList.toggle('active', b.dataset.toc === id);
+                    });
+                }
+            });
+        }, { rootMargin: '-20% 0px -70% 0px' });
+
+        document.querySelectorAll('.terms-section[id]').forEach(s => observer.observe(s));
+    }
+
+    // ── Teleport ───────────────────────────────────────────
+    lineInput.addEventListener('keydown', e => { if (e.key === 'Enter') performTeleport(); });
+
+    function performTeleport() {
+        const n = lineInput.value;
+        if (!n) return;
+        const el = document.querySelector(`[data-line="${n}"]`);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.style.transition = 'background 0.3s';
+            el.style.background = 'rgba(79,110,247,0.15)';
+            setTimeout(() => el.style.background = '', 2500);
         }
+        lineInput.value = '';
+    }
 
-        if (section.textContent.toLowerCase().includes(query)) {
-            section.style.display = 'block';
-            walkAndHighlight(section, query);
-        } else {
-            section.style.display = 'none';
-        }
+    // ── Search ─────────────────────────────────────────────
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(() => performSearch(this.value.trim()), 250);
     });
 
-    if (query !== '') {
-        currentMatches = Array.from(document.querySelectorAll('mark'));
-        if (currentMatches.length > 0) {
-            navigatorEl.classList.add('visible');
-            currentMatchIndex = 0; 
-            updateNavigatorUI();
-            scrollToMatch(0);
-        } else {
-            navigatorEl.classList.remove('visible');
-        }
-    } else {
-        navigatorEl.classList.remove('visible');
-    }
-}
+    function performSearch(query) {
+        matches = [];
+        matchIndex = -1;
 
-function walkAndHighlight(node, query) {
-    const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT, null, false);
-    const nodesToReplace = [];
-    
-    while(walker.nextNode()) {
-        if (walker.currentNode.nodeValue.toLowerCase().includes(query)) {
-            nodesToReplace.push(walker.currentNode);
-        }
-    }
+        document.querySelectorAll('.terms-section').forEach(sec => {
+            const orig = sec.getAttribute('data-orig') || sec.querySelector('.section-body').innerHTML;
+            if (!sec.getAttribute('data-orig')) sec.setAttribute('data-orig', sec.querySelector('.section-body').innerHTML);
 
-    nodesToReplace.forEach(textNode => {
-        const fragment = document.createDocumentFragment();
-        const text = textNode.nodeValue;
-        const lowerText = text.toLowerCase();
-        let lastIndex = 0;
-        let i = 0;
-        
-        while ((i = lowerText.indexOf(query, lastIndex)) > -1) {
-            if (i > lastIndex) {
-                fragment.appendChild(document.createTextNode(text.substring(lastIndex, i)));
+            sec.querySelector('.section-body').innerHTML = orig;
+            if (!query) { sec.style.display = ''; return; }
+
+            const lower = sec.textContent.toLowerCase();
+            if (lower.includes(query.toLowerCase())) {
+                sec.style.display = '';
+                highlight(sec.querySelector('.section-body'), query.toLowerCase());
+            } else {
+                sec.style.display = 'none';
             }
-            const mark = document.createElement('mark');
-            mark.textContent = text.substring(i, i + query.length);
-            fragment.appendChild(mark);
-            lastIndex = i + query.length;
-        }
-        if (lastIndex < text.length) {
-            fragment.appendChild(document.createTextNode(text.substring(lastIndex)));
-        }
-        textNode.parentNode.replaceChild(fragment, textNode);
-    });
-}
+        });
 
-function updateNavigatorUI() {
-    counterEl.textContent = `${currentMatchIndex + 1} / ${currentMatches.length}`;
-}
-
-function scrollToMatch(index) {
-    currentMatches.forEach(el => el.classList.remove('current-match'));
-    const target = currentMatches[index];
-    if (target) {
-        target.classList.add('current-match');
-        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (query) {
+            matches = Array.from(document.querySelectorAll('mark'));
+            if (matches.length) {
+                navigator_el.classList.add('visible');
+                matchIndex = 0;
+                updateCounter();
+                scrollToMatch(0);
+            } else {
+                navigator_el.classList.remove('visible');
+            }
+        } else {
+            navigator_el.classList.remove('visible');
+        }
     }
-}
 
-function navigateSearch(direction) {
-    if (currentMatches.length === 0) return;
-    currentMatchIndex += direction;
-    if (currentMatchIndex >= currentMatches.length) currentMatchIndex = 0;
-    if (currentMatchIndex < 0) currentMatchIndex = currentMatches.length - 1;
-    updateNavigatorUI();
-    scrollToMatch(currentMatchIndex);
-}
+    function highlight(node, query) {
+        const walker = document.createTreeWalker(node, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while (walker.nextNode()) {
+            if (walker.currentNode.nodeValue.toLowerCase().includes(query)) nodes.push(walker.currentNode);
+        }
+        nodes.forEach(tn => {
+            const frag = document.createDocumentFragment();
+            const text = tn.nodeValue, lower = text.toLowerCase();
+            let last = 0, i;
+            while ((i = lower.indexOf(query, last)) > -1) {
+                if (i > last) frag.appendChild(document.createTextNode(text.slice(last, i)));
+                const m = document.createElement('mark');
+                m.textContent = text.slice(i, i + query.length);
+                frag.appendChild(m);
+                last = i + query.length;
+            }
+            if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+            tn.parentNode.replaceChild(frag, tn);
+        });
+    }
 
-// --- 4. Utilities ---
-function scrollToSection(id) { 
-    const section = document.getElementById(id); 
-    if(section) section.scrollIntoView({behavior:'smooth', block:'start'}); 
-}
+    function updateCounter() { counterEl.textContent = `${matchIndex + 1} / ${matches.length}`; }
 
-function changeFontSize(delta){ 
-    const body = document.body; 
-    const style = window.getComputedStyle(body,null).getPropertyValue('font-size'); 
-    const currentSize = parseFloat(style); 
-    body.style.fontSize = (currentSize+delta)+'px'; 
-}
+    function scrollToMatch(i) {
+        matches.forEach(m => m.classList.remove('current-match'));
+        if (matches[i]) {
+            matches[i].classList.add('current-match');
+            matches[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    }
 
-// Start the app
-init();
-</script>
+    function navigateSearch(dir) {
+        if (!matches.length) return;
+        matchIndex = (matchIndex + dir + matches.length) % matches.length;
+        updateCounter();
+        scrollToMatch(matchIndex);
+    }
+
+    function clearSearch() {
+        searchInput.value = '';
+        performSearch('');
+        navigator_el.classList.remove('visible');
+    }
+
+    // ── Utilities ──────────────────────────────────────────
+    function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+        function changeFontSize(delta) {
+        const root = document.documentElement;
+        const cur = parseFloat(window.getComputedStyle(root).fontSize);
+        root.style.fontSize = Math.min(Math.max(cur + delta, 12), 24) + 'px';
+    }
+    </script>
 
 </body>
 </html>

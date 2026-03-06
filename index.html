@@ -3,164 +3,285 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VetroM | Mahdi Yasser</title>
-    
-    <meta name="description" content="VetroM: Your source for modern, high-performance, and beautiful digital solutions. Discover premium and free web systems, tools, and web apps from Mahdi Yasser.">
-    <meta name="keywords" content="VetroM, Mahdi Yasser, web systems, digital solutions, marketplace, web apps, e-commerce, blog, login system, free tools, paid goods">
+    <title>VetroM | Premium & Free Digital Solutions</title>
 
-    <meta property="og:title" content="VetroM | Premium & Free Digital Solutions">
-    <meta property="og:description" content="Discover a curated collection of light, fast, and highly functional websites, e-commerce platforms, blogs, and web systems.">
-    <meta property="og:image" content="https://vetrom.site/favicon.png">
-    <meta property="og:url" content="https://vetrom.site">
-    <meta property="og:type" content="website">
-    
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="VetroM | Premium & Free Digital Solutions">
-    <meta name="twitter:description" content="Discover a curated collection of light, fast, and highly functional websites, e-commerce platforms, blogs, and web systems.">
-    <meta name="twitter:image" content="https://vetrom.site/favicon.png">
+    <meta name="description" content="VetroM — glass-clear digital solutions by Mahdi Yasser. Premium and free web systems, platforms, and tools engineered for performance and precision.">
+    <meta name="keywords" content="VetroM, Mahdi Yasser, web systems, digital solutions, software, platforms, web apps, e-commerce, blog, security, free tools">
+
+    <meta property="og:title"       content="VetroM | Premium & Free Digital Solutions">
+    <meta property="og:description" content="Glass-clear digital solutions. Modern web systems, platforms, and tools designed for performance and precision.">
+    <meta property="og:image"       content="https://vetrom.site/favicon.png">
+    <meta property="og:url"         content="https://vetrom.site">
+    <meta property="og:type"        content="website">
+
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="VetroM | Premium & Free Digital Solutions">
+    <meta name="twitter:description" content="Glass-clear digital solutions. Modern web systems, platforms, and tools.">
+    <meta name="twitter:image"       content="https://vetrom.site/favicon.png">
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="/favicon.png" type="image/x-icon">
-    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
 </head>
-<body data-theme="light">
+<body data-theme="dark">
 
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="container">
-            <h1 class="logo">VetroM</h1>
+            <h1 class="logo">Vetro<span>M</span></h1>
 
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation">
-               <i class="fa-solid fa-bars"></i>
-            </button>
-
-            <nav>
+            <nav id="main-nav">
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#goods">Best Goods</a></li>
-                    <li><a href="./goods">All Goods</a></li>
+                    <li><a href="#catalogue">Catalogue</a></li>
+                    <li><a href="./software">All Software</a></li>
                     <li><a href="./services">Services</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+            <div class="header-actions">
+                <button id="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button>
+                <button class="mobile-menu-toggle" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="home" class="hero-section">
-            <div class="container">
-                <p class="subtitle">Your source for modern digital solutions</p>
-                <h2>Premium & <span class="highlight">Free</span> Systems, Tools, and Web Apps</h2>
-                <p>Discover a curated collection of websites, e-commerce platforms, blogs, and web systems—all designed to be light, fast, and highly functional.</p>
-                <a href="./goods" class="button primary">Explore All Goods</a>
-                <a href="./services" class="button primary">See All Services</a>
-            </div>
-        </section>
 
-        <section id="goods" class="goods-section">
+        <!-- ===== HERO ===== -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg" aria-hidden="true">
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+                <div class="blob blob-3"></div>
+            </div>
+
             <div class="container">
-                <h3 class="section-title">Our Best Goods</h3>
-                <p class="section-description">High-quality, light-weight digital assets for your next project.</p>
-                <div class="goods-list">
-                    <div class="good-card">
-                        <div class="tag free">Free</div>
-                        <h4>Simple Blog</h4>
-                        <p>A high-performance premium minimal blog with its own blazing fast CMS.<br> <br></p>
-                        <a href="./goods/index.html?product=5" class="button secondary">View Details</a>
+                <div class="hero-eyebrow">
+                    <i class="fa-solid fa-circle-dot"></i>
+                    Glass-clear digital solutions
+                </div>
+
+                <h1>
+                    Premium &amp; <span class="highlight">Free</span><br>
+                    Web <span class="highlight-2">Systems</span> &amp; Platforms
+                </h1>
+
+                <p class="hero-desc">
+                    A curated collection of modern web systems, platforms, and tools — crafted by Mahdi Yasser and engineered for speed, security, and precision.
+                </p>
+
+                <div class="hero-cta">
+                    <a href="./software" class="button primary">
+                        <i class="fa-solid fa-layer-group"></i>
+                        Browse All Software
+                    </a>
+                    <a href="./services" class="button ghost">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        View Services
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-num">6<span>+</span></div>
+                        <div class="stat-label">Solutions</div>
                     </div>
-                    <div class="good-card">
-                        <div class="tag paid">Paid</div>
-                        <h4>Media Upload Platform</h4>
-                        <p>A high-performance media platform with built-in users-based system and admin panel.</p>
-                        <a href="./goods/index.html?product=2" class="button secondary">View Details</a>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-num"><span>2</span></div>
+                        <div class="stat-label">Open Source</div>
                     </div>
-                    <div class="good-card">
-                        <div class="tag free">Free</div>
-                        <h4>Backup System</h4>
-                        <p>Minimalist and fast backup system.<br><br><br></p>
-                        <a href="./goods/index.html?product=3" class="button secondary">View Details</a>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-num">100<span>%</span></div>
+                        <div class="stat-label">Hand-crafted</div>
                     </div>
-                    <div class="good-card">
-                        <div class="tag paid">Paid</div>
-                        <h4>Login Security System</h4>
-                        <p>A comprehensive, feature-rich login system for modern web applications.<br> <br> <br></p>
-                        <a href="./goods/index.html?product=1" class="button secondary">View Details</a>
-                    </div>
-                    <div class="good-card">
-                        <div class="tag paid">Paid</div>
-                        <h4>Chat Platrom</h4>
-                        <p>Custom secured chatting platform that can autmoaticly create new chat rooms without touching code you can have
-                           your own chatting platform ready in miutes.</p>
-                        <a href="./goods/index.html?product=4" class="button secondary">View Details</a>
-                    </div>
-                    <div class="good-card">
-                        <div class="tag paid">Paid</div>
-                        <h4>Simple E-comm</h4>
-                        <p>A comprehensive, premium and simple <br> e-comm website for small shops and start-ups.<br> <br></p>
-                        <a href="./goods/index.html?product=6" class="button secondary">View Details</a>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-num"><span>0</span></div>
+                        <div class="stat-label">Monthly Fees</div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
+        <!-- ===== CATALOGUE ===== -->
+        <section id="catalogue" class="catalogue-section">
+            <div class="container">
+
+                <div class="catalogue-header reveal">
+                    <div>
+                        <div class="section-tag">Software Catalogue</div>
+                        <h2 class="section-title">Featured Solutions</h2>
+                        <p class="section-desc">Self-hosted web systems and platforms built for real-world deployment — no monthly subscriptions, no bloat.</p>
+                    </div>
+                    <a href="./software" class="button secondary" style="flex-shrink:0">
+                        Full Catalogue <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!--
+                    CATALOGUE CONTROL — add/remove/reorder products here.
+                    data-product-id must match the id in data/data.json
+                    pricing (free/paid) is read directly from the JSON
+                -->
+                <div class="catalogue-grid" id="catalogue-grid" data-source="./data/data.json">
+                    <div data-product-id="6"></div>
+                    <div data-product-id="5"></div>
+                    <div data-product-id="4"></div>
+                    <div data-product-id="3"></div>
+                    <div data-product-id="2"></div>
+                    <div data-product-id="1"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- ===== ABOUT ===== -->
         <section id="about" class="about-section">
             <div class="container">
-                <h3 class="section-title">💡 About VetroM</h3>
-                <div class="about-content">
-                    <p>VetroM was founded on the principle that digital tools should be <strong>fast, reliable, and beautiful</strong>. We specialize in crafting modern web solutions, ranging from full-fledged systems to modular components.</p>
-                    <p>Our focus is on clean code, optimal performance, and user-centric design. Every product is built to offer a seamless experience, whether you're a developer, a business owner, or a creative professional.</p>
-                    <p class="highlight-text">We believe in making the web a better place, one functional and beautiful tool at a time.</p>
+                <div class="about-inner">
+
+                    <div class="about-text reveal">
+                        <div class="section-tag">About VetroM</div>
+                        <h2 class="section-title">Built on clarity.<br>Engineered to perform.</h2>
+
+                        <div class="about-body">
+                            <p>
+                                <strong>Vetro</strong> is Italian for glass — transparent, precise, and refined.
+                                That is the standard every product here is held to. The <strong>M</strong> stands for Mahdi Yasser,
+                                the sole developer behind every line of code.
+                            </p>
+                            <p>
+                                VetroM builds self-hosted web systems, platforms, and tools with a focus on clean architecture,
+                                zero unnecessary dependencies, and real-world durability. Every release ships only when it
+                                meets the standard the name demands.
+                            </p>
+                            <p class="italic-quote">
+                                "The best software is the kind you forget is even running."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="about-visual reveal" data-reveal-delay="150">
+                        <div class="about-card">
+                            <div class="about-card-icon">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <div class="about-card-text">
+                                <strong>Zero-bloat Architecture</strong>
+                                <span>No frameworks forced on you. Ships only what the solution actually needs.</span>
+                            </div>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-card-icon">
+                                <i class="fa-solid fa-lock"></i>
+                            </div>
+                            <div class="about-card-text">
+                                <strong>Security by Default</strong>
+                                <span>Rate limiting, session enforcement, and encrypted storage built in from day one.</span>
+                            </div>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-card-icon">
+                                <i class="fa-solid fa-server"></i>
+                            </div>
+                            <div class="about-card-text">
+                                <strong>Fully Self-hosted</strong>
+                                <span>Deploy on your own server. No subscriptions, no third-party lock-in.</span>
+                            </div>
+                        </div>
+                        <div class="about-card">
+                            <div class="about-card-icon">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <div class="about-card-text">
+                                <strong>Readable, Maintainable Code</strong>
+                                <span>Written to be understood, customised, and owned — not just deployed.</span>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
+        <div class="section-divider"></div>
+
+        <!-- ===== CTA ===== -->
         <section id="contact" class="cta-section">
-            <div class="container">
-                <h3 class="section-title">Ready to Connect?</h3>
-                <p class="section-description">Have a question about a product or need custom development? Reach out to us directly!</p>
-                <button id="open-contact-modal" class="button primary">Send Us a Message</button>
+            <div class="container reveal">
+                <div class="section-tag">Get in Touch</div>
+                <h2 class="section-title">Ready to Connect?</h2>
+                <p class="section-desc">
+                    Have a question about a solution, need a custom build, or want to discuss a project?
+                    Reach out directly.
+                </p>
+                <br>
+                <button id="open-contact-modal" class="button primary">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    Send a Message
+                </button>
             </div>
         </section>
+
     </main>
 
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 VetroM. Modern Marketplace. Built with ☕️</p>
+            <div class="footer-left">
+                <p class="footer-copy">&copy; 2026 VetroM &mdash; Built by Mahdi Yasser</p>
+            </div>
             <div class="footer-links">
-                <a href="./terms-and-privacy">Terms & Privacy</a>
+                <a href="./terms-and-privacy">Terms &amp; Privacy</a>
+                <a href="./software">All Software</a>
+                <a href="./services">Services</a>
             </div>
         </div>
     </footer>
 
-    <div id="contact-modal" class="modal">
+    <!-- ===== CONTACT MODAL ===== -->
+    <div id="contact-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
         <div class="modal-content">
-            <span class="close-button">&times;</span>
-            <h3 class="modal-title section-title">📧 Get in Touch</h3>
-            
+            <div class="modal-header">
+                <h3 id="modal-heading">Get in Touch</h3>
+                <button class="close-button" aria-label="Close">&times;</button>
+            </div>
+
             <div class="contact-grid">
                 <div class="contact-form-container">
                     <form id="contact-form" action="https://formspree.io/f/mwpgqoed" method="POST">
                         <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Mahdi Yasser" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Message</label>
-                            <textarea id="message" rows="5" name="message" required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="Describe your project or question..." required></textarea>
                         </div>
-                        <button type="submit" class="button primary">Send Message</button>
+                        <button type="submit" class="button primary" style="width:100%">
+                            <i class="fa-solid fa-paper-plane"></i> Send Message
+                        </button>
                         <p id="form-message" class="hidden"></p>
                     </form>
                 </div>
 
                 <div class="contact-details">
-                    <h4>Reach Out Directly</h4>
+                    <h4>Direct Contact</h4>
                     <div class="detail-item">
                         <i class="fa-solid fa-envelope"></i>
                         <a href="mailto:mahdi@mahdiyasser.site">mahdi@mahdiyasser.site</a>
@@ -171,12 +292,18 @@
                     </div>
                     <div class="detail-item">
                         <i class="fa-solid fa-location-dot"></i>
-                        <span>Digital Office, World Wide Web</span>
+                        <span>Remote &mdash; Worldwide</span>
                     </div>
                     <div class="social-links">
-                        <a href="https://instagram.com/mahdiyasser1" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://github.com/Mahdiyasser" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://mahdiyasser.site" target="_blank" aria-label="Personal Website"><i class="fa-solid fa-globe"></i></a>
+                        <a href="https://instagram.com/mahdiyasser1" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://github.com/Mahdiyasser" target="_blank" rel="noopener" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://mahdiyasser.site" target="_blank" rel="noopener" aria-label="Personal Website">
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
                     </div>
                 </div>
             </div>
